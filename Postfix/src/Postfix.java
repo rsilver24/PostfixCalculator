@@ -1,30 +1,74 @@
+// Roan Silver + Juan Pablo      Created: November 2nd, 2023        Last Edits:
+// Collaborators:
 import java.util.Scanner;
-
 public class Postfix {
-    public int lookAtThisCoolCode(){
-        Scanner s = new Scanner();
+
+    // Instance Data
+
+    private Stack newStack;
+
+
+    // Constructor
+
+    public Postfix(){
+        newStack = new Stack();
+    }
+
+    // Methods
+
+    // Method that completes the required action: Take User Input, Calculate it, Display it
+    public void postfixCalculation(){
+        Scanner s = new Scanner(System.in);
         System.out.print("Enter expression in postfix notation w/ spaces: ");
         String userInput = s.nextLine();
-        int length = userInput.length();
 
-        // Find number of multiplication and division precedures
+        System.out.print("Here is the Answer: " + compile(userInput));
+    }
 
-        int numMultDiv = 0;
-        for (int i = 0; i < length; i++){
-            if (userInput.charAt(i) == '*'){
-                numMultDiv++;
+    // Method that does the actual calculation w/ both Stack management and Function Procedures
+    public int compile(String problem){
+        boolean done = false;
+        String update = problem;
+        while (!done){
+            newStack.push(update.substring(0, problem.indexOf(' ')));
+
+            //Code to complete operations
+            if (newStack.peek().equals('*')){
+                multiply(newStack);
+            } else if (newStack.peek().equals('/')){
+                divide(newStack);
+            } else if (newStack.peek().equals('+')){
+                add(newStack);
+            } else if (newStack.peek().equals('-')){
+                subtract(newStack);
             }
-        }
 
-        // Multiply and Divide Items Together
-
-        for (int i = numMultDiv; i != 0; i--){
-            boolean finish = false;
-            int placeHolder;
-            for (int k = 0; !finish; k++){
-                if (userInput.charAt(i) == '*'){
-                }
-            }
+            //Code to check if everything is imputed, AND updates substring accordingly
+            if (update.indexOf(' ') != update.length()-1)
+                update = update.substring(update.indexOf(' ') + 1);
+            else
+                done = true;
         }
+        return (int) newStack.peek();
+    }
+
+    // Method to Multiply top values of a stack
+    public int multiply(Stack stack){
+
+    }
+
+    // Method to Divide top values of a stack
+    public int divide(Stack stack){
+
+    }
+
+    // Method to add top values of a stack
+    public int add(Stack stack){
+
+    }
+
+    // Method to subtract top values of a stack
+    public int subtract(Stack stack){
+
     }
 }
