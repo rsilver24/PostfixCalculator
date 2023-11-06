@@ -34,13 +34,13 @@ public class Postfix {
 
             //Code to complete operations
             if (newStack.peek().equals('*')){
-                multiply(newStack);
+                newStack.push(multiply(newStack));
             } else if (newStack.peek().equals('/')){
-                divide(newStack);
+                newStack.push(divide(newStack));
             } else if (newStack.peek().equals('+')){
-                add(newStack);
+                newStack.push(add(newStack));
             } else if (newStack.peek().equals('-')){
-                subtract(newStack);
+                newStack.push(subtract(newStack));
             }
 
             //Code to check if everything is imputed, AND updates substring accordingly
