@@ -31,7 +31,8 @@ public class Postfix {
         String update = problem;
         while (!done){
             if (update.substring(0,problem.indexOf(' ')).equals("*") == false && update.substring(0,problem.indexOf(' ')).equals("/") == false
-            && update.substring(0,problem.indexOf(' ')).equals("+") == false && update.substring(0,problem.indexOf(' ')).equals("-") == false){
+            && update.substring(0,problem.indexOf(' ')).equals("+") == false && update.substring(0,problem.indexOf(' ')).equals("-") == false
+            && update.substring(0, problem.indexOf(' ')).equals("%") == false){
                 newStack.push(Integer.parseInt(update.substring(0, problem.indexOf(' '))));
             } else{
                 newStack.push(update.substring(0, problem.indexOf(' ')));
@@ -46,6 +47,8 @@ public class Postfix {
                 newStack.push(add());
             } else if (newStack.peek().equals("-")){
                 newStack.push(subtract());
+            } else if (newStack.peek().equals("%")){
+                newStack.push(mod());
             }
 
             //Code to check if everything is imputed, AND updates substring accordingly
@@ -87,5 +90,13 @@ public class Postfix {
         int value1 = (int)newStack.pop();
         int value2 = (int)newStack.pop();
         return value2 - value1;
+    }
+
+    // Method to mod top values of a stack
+    public int mod(){
+        newStack.pop();
+        int value1 = (int)newStack.pop();
+        int value2 = (int)newStack.pop();
+        return value2 % value1;
     }
 }
