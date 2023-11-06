@@ -1,0 +1,1 @@
+Postfix Calculator is meant to make use of our previously coded StackNode and Stack classes to do what a normal calculator can do. The main difference is that instead of taking a equation as 1 + 1 = 2, as 1 1 + and it will spit out 2. This project consists of three priamry java files Postfix.java, 
