@@ -30,7 +30,7 @@ public class Postfix {
         boolean done = false;
         String update = problem;
         while (!done){
-            newStack.push(update.substring(0, problem.indexOf(' ')));
+            newStack.push(Integer.parseInt(update.substring(0, problem.indexOf(' '))));
 
             //Code to complete operations
             if (newStack.peek().equals('*')){
