@@ -34,13 +34,13 @@ public class Postfix {
 
             //Code to complete operations
             if (newStack.peek().equals('*')){
-                newStack.push(multiply(newStack));
+                newStack.push(multiply());
             } else if (newStack.peek().equals('/')){
-                newStack.push(divide(newStack));
+                newStack.push(divide());
             } else if (newStack.peek().equals('+')){
-                newStack.push(add(newStack));
+                newStack.push(add());
             } else if (newStack.peek().equals('-')){
-                newStack.push(subtract(newStack));
+                newStack.push(subtract());
             }
 
             //Code to check if everything is imputed, AND updates substring accordingly
@@ -53,22 +53,30 @@ public class Postfix {
     }
 
     // Method to Multiply top values of a stack
-    public int multiply(Stack stack){
-
+    public int multiply(){
+        int value1 = (int)newStack.pop();
+        int value2 = (int)newStack.pop();
+        return value1 * value2;
     }
 
     // Method to Divide top values of a stack
-    public int divide(Stack stack){
-
+    public int divide(){
+        int value1 = (int)newStack.pop();
+        int value2 = (int)newStack.pop();
+        return value1 / value2;
     }
 
     // Method to add top values of a stack
-    public int add(Stack stack){
-
+    public int add(){
+        int value1 = (int)newStack.pop();
+        int value2 = (int)newStack.pop();
+        return value1 + value2;
     }
 
     // Method to subtract top values of a stack
-    public int subtract(Stack stack){
-
+    public int subtract(){
+        int value1 = (int)newStack.pop();
+        int value2 = (int)newStack.pop();
+        return value1 - value2;
     }
 }
