@@ -12,7 +12,7 @@ public class PostfixTestDriver {
 
         try {
             Scanner s = new Scanner(System.in);
-            File fileInput = new File( s.nextLine() + ".txt");
+            File fileInput = new File(s.nextLine() + ".txt");
             Scanner sc = new Scanner(fileInput);
             String problem = sc.nextLine();
             System.out.println(problem);
