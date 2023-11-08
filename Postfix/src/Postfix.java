@@ -1,4 +1,4 @@
-// Roan Silver + Juan Pablo      Created: November 2nd, 2023        Last Edits:
+// Roan Silver + Juan Pablo      Created: November 2nd, 2023        Last Edits: November 6th, 2023
 // Collaborators:
 import java.util.Scanner;
 public class Postfix {
@@ -17,16 +17,12 @@ public class Postfix {
     // Methods
 
     // Method that completes the required action: Take User Input, Calculate it, Display it
-    public void postfixCalculation(){
-        Scanner s = new Scanner(System.in);
-        System.out.print("Enter expression in postfix notation w/ spaces: ");
-        String userInput = s.nextLine();
-
-        System.out.print("Here is the Answer: " + compile(userInput));
+    public int postfixCalculation(String input){
+        return compile(input);
     }
 
     // Method that does the actual calculation w/ both Stack management and Function Procedures
-    public Object compile(String problem){
+    public int compile(String problem){
         boolean done = false;
         String update = problem;
         while (!done){
@@ -57,7 +53,7 @@ public class Postfix {
             else
                 done = true;
         }
-        return newStack.peek();
+        return (int)newStack.peek();
     }
 
     // Method to Multiply top values of a stack
