@@ -17,9 +17,9 @@ public class PostfixTestDriver {
             String problem = sc.nextLine();
             System.out.println(problem);
             int conclusion = p.postfixCalculation(problem);
-            File fileOutput = new File("Answer");
-            FileWriter answer = new FileWriter("Answer");
-            answer.write(conclusion);
+            File fileOutput = new File("Answer.txt");
+            FileWriter answer = new FileWriter("Answer.txt");
+            answer.write(Integer.toString(conclusion));
             answer.close();
             System.out.println("New File: " + fileOutput.getName() + " has been created!");
         } catch (IOException e){
